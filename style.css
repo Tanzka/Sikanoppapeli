@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the rules popup */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0; 
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#rules {
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+
+/* Styling for the main game itself */
+
+main {
+    display: flex;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.hidden {
+    display: none;
+}
+
+.left-side {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    width: 75%;
+}
+
+.right-side {
+    width: 25%;
+}
+
+.label {
+    margin: 7px 0;
+    width: 90px;
+    display: inline-block;
+}
+
+.button {
+    padding: 10px 12px;
+    margin: 8px 4px;
+    background-color: rgb(81, 190, 226);
+    color: white;
+    border: none;
+    transition: background-color 0.25s;
+}
+
+.button:hover {
+    background-color: rgb(44, 122, 148);
+}
+
+.dice {
+    margin: 8px 4px;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+}
+
+#winner-text {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#scoreboard {
+    background-color: black;
+    color: white;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sikanoppapeli</title>
+</head>
+<body>
+    <main>
+        <button id="rules" data-modal-target="#modal">
+            <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="title">Sikanoppapelin säännöt</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+               - Peliä pelataan kahdella tai useammalla pelaajalla. Pisterajan minimi on <b>100</b>, muuten sen voi määritellä itse. <br>
+               - Peliä voi pelata joko yhdellä tai kahdella nopalla. <br>
+               - Pelaaja voi jatkaa vuoroaan niin pitkään kunnes päättää vuoronsa, tai osuu ykköselle. <br>
+               - Jos peliä pelataan yhdellä nopalla, pelaaja joka heittää ykkösen ei saa vuorolta pisteitä, ja vuoro siirtyy seuraavalle pelaajalle. <br>
+               - Kahdella nopalla vuoro siirtyy toiselle pelaajalle vain jos toinen nopista on ykkönen. Jos molemmat nopat ovat ykkösiä, saat 25 pistettä heitosta. <br>
+               - Jos molemmat nopat osuvat samalle numerolle, saat heitosta tuplapisteet. Esim. jos molemmat nopat osuvat kolmoselle, saat 12 pistettä.
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+        <div class="left-side">
+            <div id="settings">
+                <form name="settings" id="settings-form">
+                    <div class="center">
+                        <label for="player-select" class="label">Pelaajia: </label>
+                        <input type="number" name="player-select" id="player-select" min="2" max="99" value="2"><br>
+                    </div>
+                    <div class="center">
+                        <label for="score-goal" class="label">Pisteraja: </label>
+                        <input type="number" name="score-goal" id="score-goal" min="100" value="100"><br>
+                    </div>
+                    <div class="center">
+                        <label class="label">Noppia: </label>
+                        <input type="radio" name="dice-amount" id="d-amnt-1" value="1" checked>
+                        <label for="d-amnt-1">1 Noppa</label>
+                        <input type="radio" name="dice-amount" id="d-amnt-2" value="2">
+                        <label for="d-amnt-2">2 Noppaa</label>
+                    </div>
+                    <div class="center">
+                        <input type="submit" value="Jatka" class="button">
+                    </div>
+                </form>
+            </div>
+
+            <div id="names" class="hidden">
+                <p class="center">Nimeä pelaajat</p>
+                <form id="names-form">
+                    <div class="center">
+                        <input type="submit" value="Aloita" class="button">
+                    </div>
+                    <p id="names-warning" class="hidden">Nimeä kaikki pelaajat!</p>
+                </form>
+            </div>
+
+            <div id="game" class="hidden">
+                <p id="turn" class="center">Pelaajan X vuoro</p>
+                <div class="center">
+                    <img src="dice_images/1.gif" id="dice-1" class="dice">
+                    <img src="dice_images/2.gif" id="dice-2" class="hidden">
+                </div>
+                <p id="score-text" class="center">Vuoron pisteet: 0</p>
+                <div class="center">
+                    <button id="throw-button" class="button">Heitä</button>
+                    <button id="end-button" class="button">Päätä vuoro</button>
+                </div>
+                <div class="center">
+                    <p id="winner-text" class="hidden">Pelaaja X voitti!</p>
+                </div>
+                <div class="center">
+                    <button id="new-game" class="hidden button">Uusi peli</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div id="scoreboard">
+                <p class="center">Pisteet</p>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
